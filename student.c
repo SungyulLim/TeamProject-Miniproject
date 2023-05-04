@@ -10,6 +10,7 @@ void student_main(){
     printf("학생용 서브메인 입니다\n");
 
     //여기에 기능 메뉴 만들어서 기능 사용.
+    //여기서 retun 하면 메인으로 돌아가짐.
     return;
 }
 
