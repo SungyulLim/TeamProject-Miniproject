@@ -3,6 +3,7 @@
 #include "manager.h"
 #include "student.h"
 
+//메인은 완성 끝. 더이상 건들 필료 없음.
 int main(void){
 
     while(1){
@@ -12,7 +13,7 @@ int main(void){
         printf("1. 학생\n");
         printf("2. 관리자\n");
         printf("0. 종료\n");
-        printf("--------------------\n");
+        printf("----------------------\n");
 
         printf("원하는 메뉴를 입력하세요 > ");
         scanf("%d", &menu);
