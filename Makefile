@@ -1,3 +1,4 @@
+#Makefile 최종
 DormitoryManagement : main.c  manager.o student.o
 	gcc -o DormitoryManagement main.c  manager.o student.o
 
