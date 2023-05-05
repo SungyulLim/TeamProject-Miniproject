@@ -2,12 +2,29 @@
 #include "student.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 //학생용 기능 여기서 만들기 + 서브매인도.
 // 헤더는 (void student_main())는 무조건 헤더파일에 선언해주어야 합니다.
+// students[] 변수와, count 변수는 헤더에 전연 변수로 선언 되어 있기에 그냥 변수 쓰씨시면 오류 안아고 사용 가능.
 
 void student_main(){
     printf("학생용 서브메인 입니다\n");
+
+    //test
+    //공간 만들고 정보입력 테스트.
+    students[count] = (student*)malloc(sizeof(student));
+    strcat(students[count] ->name, "이수민");
+    strcat(students[count] ->s_ID, "22200533");
+    strcat(students[count] ->f_m, "여");
+    strcat(students[count] ->Dormitory_name, "은혜관");
+    students[count] ->room_num = 0;
+    students[count] ->total_num_room = 0;
+    students[count] ->demerit = 0;
+    students[count] ->Y_N = 'N';
+    count ++;
+    //
+    
 
     //여기에 기능 메뉴 만들어서 기능 사용.
     //여기서 retun 하면 메인으로 돌아가짐.

@@ -6,7 +6,7 @@ typedef struct {
 }overnight_stay;
 
 typedef struct {
-    char naem[20]; // 이름 : 이수민
+    char name[20]; // 이름 : 이수민
     char s_ID[10]; //gkrqjs : 22200533
     char f_m[5]; // 성별(여/남) 
     char Dormitory_name[15]; // 건물이름(은혜관, 벧엘관, 비전관, 하용조관, 국제관, 로뎀관, 갈대상자
@@ -17,4 +17,9 @@ typedef struct {
     overnight_stay student_overnight_list[50];//하나의 학생의 외박 신청서 50번 가능.
 }student;
 
+//전역 변수 어느곳에서도 선언 가능.
+student* students[50]; //전역 변수 선언. OSS실습 menu4 참고해주세요.
+int count; // 전역 변수 선언. 메이네서 count=0 으로 초기화 했습니다!
+
+//여기 밑에 student.c 에 있는 함수 헤더 선언
 void student_main();

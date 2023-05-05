@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "manager.h"
 #include "student.h"
 
 //메인은 완성 끝. 더이상 건들 필료 없음.
 int main(void){
+    count = 0;
 
     while(1){
         int menu;
