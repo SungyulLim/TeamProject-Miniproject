@@ -11,16 +11,19 @@ void manager_main(){
     printf("관리자용 서브메인 입니다\n");
 
     //test
+    printf("---------------LIST------------\n");
     for(int i=0; i<count; i++){
-       printf("%s %s %s %s %d호 %d인실 %d점 %c\n", students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
+        
+        printf("%s %s %s %s %d호 %d인실 %d점 %c\n", students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
+        
     }
+    printf("-------------------------------\n\n");
 
     for(int i=0; i<count; i++){
         if(students[i] ->Y_N == 'N'){
             students[i] ->room_num = 101+i;
-            students[i] ->total_num_room = 2;
-            students[i] ->demerit = 0;
             students[i] ->Y_N = 'Y';
+            printf("%s(%s)님을 %d호에 방배정 했습니다.\n", students[i] ->name, students[i] ->s_ID, students[i] ->room_num);
         }
     }
 

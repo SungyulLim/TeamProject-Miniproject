@@ -12,16 +12,17 @@ void student_main(){
     printf("학생용 서브메인 입니다\n");
 
     //test
-    //공간 만들고 정보입력 테스트.
+    //공간 만들고 정보입력 테스트.(지워도 됨)
     students[count] = (student*)malloc(sizeof(student));
     strcat(students[count] ->name, "이수민");
     strcat(students[count] ->s_ID, "22200533");
     strcat(students[count] ->f_m, "여");
     strcat(students[count] ->Dormitory_name, "은혜관");
     students[count] ->room_num = 0;
-    students[count] ->total_num_room = 0;
+    students[count] ->total_num_room = 2;
     students[count] ->demerit = 0;
     students[count] ->Y_N = 'N';
+    printf("%s(%s)님 방배정 신청이 완료되었습니다!\n", students[count] ->name, students[count] ->s_ID);
     count ++;
     //
     
