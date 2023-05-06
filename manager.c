@@ -63,14 +63,14 @@ void manager_main(){
 //1. 기숙사 신청자 방 배치
 void room_numbering(){
     int num;
-    printf("\n-----------------------기숙사 신청자 리스트-------------------\n");
+    printf("\n----------------------기숙사 신청자 리스트------------------\n");
     printf("번호 이름    학번   성별 생활관  호실 인실  벌점 방배정여부\n");
     for(int i=0; i<count; i++){
         if(students[i] ->Y_N == 'N'){
             printf("%2d. %-4s %s  %s  %-4s %3d호 %d인실 %2d점  %3c\n",i+1 , students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
         }
     }
-    printf("----------------------------------------------------------\n\n");
+    printf("-----------------------------------------------------------\n\n");
     printf("방 배정 할 학생의 번호를 입력하세요 > ");
     scanf("%d", &num);
     num--; //배열이라 -1 해줘여함.
@@ -84,7 +84,7 @@ void room_numbering(){
 
 //2. 기숙사 리스트 보기
 void dormitory_list(){
-    printf("\n----------------------------전체 리스트------------------------\n");
+    printf("\n-----------------전체 리스트(사용자, 신청자)-----------------\n");
     printf("번호 이름    학번   성별 생활관  호실 인실  벌점 방배정여부\n");
     for(int i=0; i<count; i++){
         
@@ -97,7 +97,32 @@ void dormitory_list(){
 
 //3. 벌점 부과하기
 void penalty_points(){
+    int points[4] = {2, 1, 1, 5};
+    int choose_points;
+    int num;
+    printf("\n---------------------기숙사 사용자 리스트------------------\n");
+    printf("번호 이름    학번   성별 생활관  호실 인실  벌점 방배정여부\n");
+    for(int i=0; i<count; i++){
+        if(students[i] ->Y_N == 'Y'){
+            printf("%2d. %-4s %s  %s  %-4s %3d호 %d인실 %2d점  %3c\n",i+1 , students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
+        }
+    }
+    printf("-----------------------------------------------------------\n\n");
+    printf("벌점을 부여 할 학생의 번호를 입력하세요 > ");
+    scanf("%d", &num);
+    num--; //배열이라 -1 해줘여함.
 
+    printf("* 벌점 리스트 *\n");
+    printf("1. 무단외박 (2점)\n");
+    printf("2. 미소등(1점)\n");
+    printf("3. 침묵시간 안 지킴 (1점)\n");
+    printf("4. 외부인 들임 (5점)\n");
+    printf("\n벌점 사유를 선택하세요(1~4)> ");
+    scanf("%d", &choose_points);
+    choose_points--;
+
+    students[num]->demerit = points[choose_points];
+    printf("%s(%s)학우님 에게 벌점%d점을 부여했습니다.\n", students[num] ->name, students[num] ->s_ID, points[choose_points]);
 
 }
 
