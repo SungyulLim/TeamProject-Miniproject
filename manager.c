@@ -11,13 +11,13 @@ void manager_main(){
     printf("관리자용 서브메인 입니다\n");
 
     //test
-    printf("---------------LIST------------\n");
+    printf("-----------------------LIST-------------------\n");
     for(int i=0; i<count; i++){
         
         printf("%s %s %s %s %d호 %d인실 %d점 %c\n", students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
         
     }
-    printf("-------------------------------\n\n");
+    printf("------------------------------------------------\n\n");
 
     for(int i=0; i<count; i++){
         if(students[i] ->Y_N == 'N'){
@@ -25,6 +25,44 @@ void manager_main(){
             students[i] ->Y_N = 'Y';
             printf("%s(%s)님을 %d호에 방배정 했습니다.\n", students[i] ->name, students[i] ->s_ID, students[i] ->room_num);
         }
+    }
+
+    while(1){
+        int menu;
+
+        printf("\n-------관리자용-------\n");
+        printf("1. 기숙사 신청자 방 배치\n");
+        printf("2. 기숙사 리스트 보기\n");
+        printf("3. 벌점 부과하기\n");
+        printf("5. 리스트 저장\n");
+        printf("6. 메인 화면으로\n");
+        printf("----------------------\n");
+
+        printf("원하는 메뉴를 입력하세요 > ");
+        scanf("%d", &menu);
+
+        if (menu == 6) break;
+        if (menu == 1){
+            
+        }
+        else if (menu == 2){
+            
+        }
+        else if (menu == 3){
+            
+        }
+        else if (menu == 4){
+            
+        }
+        else if (menu ==5){
+            
+        }
+        else{
+            printf("\n!!입력오류!!\n");
+            printf("!!다시 입력해주세요!!\n");
+        }
+
+
     }
 
 
