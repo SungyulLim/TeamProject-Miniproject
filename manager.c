@@ -128,7 +128,19 @@ void penalty_points(){
 
 //4. 리스트 저장
 void save_list(){
+    FILE *fp;
+    fp = fopen("dormitory_List.txt", "w");
+        
 
+    for(int i=0; i<count; i++){
+        if(students[i]->room_num == -1) continue;
+        else{
+            fprintf(fp, "%s %s %s %s %d %d %d %c\n",students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
+        }
+    }
+   
+    fclose(fp);
+    printf("\n==> 저장이 완료 되었습니다.\n");
 }
 
 //"5. 리스트 불러오기

@@ -18,7 +18,7 @@ typedef struct {
 }student;
 
 //전역 변수 어느곳에서도 선언 가능.
-student* students[50]; //전역 변수 선언. OSS실습 menu4 참고해주세요.
+student* students[50]; //전역 변수 선언. OSS실습 menu4 참고해주세요. 50명 까지 수용 가능.
 int count; // 전역 변수 선언. 메이네서 count=0 으로 초기화 했습니다!
 
 //여기 밑에 student.c 에 있는 함수 헤더 선언
