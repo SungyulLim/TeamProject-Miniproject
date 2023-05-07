@@ -59,7 +59,7 @@ void checkMyInfo() {
   char id[20];   // 직접 입력하게 될 ID
   char name[20]; // 직접 입력하게 될 Name
   int k = 0;     // 학생이 몇번인지 확인하기 위한 변수
-  printf("학번을 입력하시오"); //학번 입력
+  printf("학번을 입력하시오. "); //학번 입력
   scanf("%s", id);
 
   for (int i = 0; i < count; i++) {
@@ -69,7 +69,7 @@ void checkMyInfo() {
     }
   }
 
-  printf("이름을 입력하시오"); // 이름을 입력받기
+  printf("이름을 입력하시오. "); // 이름을 입력받기
   scanf("%s", name);
 
   if (strcmp(name, students[k]->name) == 0) { //입력받은 이름과 학번이 일치하면 본인의 개인정보 공개
@@ -80,15 +80,15 @@ void checkMyInfo() {
 }
 
 void apply_domitory() {
-  printf("이름을 입력하시오");
+  printf("이름을 입력하시오. ");
   scanf("%s", students[count]->name);
-  printf("학번을 입력하시오");
+  printf("학번을 입력하시오. ");
   scanf("%s", students[count]->s_ID);
-  printf("성별을 입력하시오");
+  printf("성별을 입력하시오. ");
   scanf("%s", students[count]->f_m);
-  printf("건물 이름을 입력하시오. (건물의 풀 네임으로 입력해주세요. ex) 로뎀관, 은혜관.)");
+  printf("건물 이름을 입력하시오. (건물의 풀 네임으로 입력해주세요. ex) 로뎀관, 은혜관.). ");
   scanf("%s", students[count]->Dormitory_name);
-  printf("몇인실을 신청하실 건가요? (창조관은 1인실, 갈대상자관은 1인실/2인실, 나머지 호관은 4인실/2인실이 신청 가능합니다.)");
+  printf("몇인실을 신청하실 건가요? (창조관은 1인실, 갈대상자관은 1인실/2인실, 나머지 호관은 4인실/2인실이 신청 가능합니다.). ");
   scanf("%d", &students[count]->total_num_room);
 
   printf("신청 성공!");
@@ -99,7 +99,7 @@ void update_domitory() {
   char id[20];   // 직접 입력하게 될 ID
   char name[20]; // 직접 입력하게 될 Name
   int k = 0;     // 학생이 몇번인지 확인하기 위한 변수
-  printf("학번을 입력하시오. (처음 입력했던대로 입력하시오)"); //학번 입력
+  printf("학번을 입력하시오. (처음 입력했던대로 입력하시오) "); //학번 입력
   scanf("%s", id);
 
   for (int i = 0; i < count; i++) {
@@ -110,20 +110,20 @@ void update_domitory() {
     }
   }
 
-  printf("이름을 입력하시오. (처음 입력했던대로 입력하시오)"); // 이름을 입력받기
+  printf("이름을 입력하시오. (처음 입력했던대로 입력하시오) "); // 이름을 입력받기
   scanf("%s", name);
 
   if (strcmp(name, students[k]->name) == 0) {
-    printf("이름을 입력하시오");
-    scanf("%s", students[count]->name);
-    printf("학번을 입력하시오");
-    scanf("%s", students[count]->s_ID);
-    printf("성별을 입력하시오");
-    scanf("%s", students[count]->f_m);
-    printf("건물 이름을 입력하시오. (건물의 풀 네임으로 입력해주세요. ex) 로뎀관, 은혜관.)");
-    scanf("%s", students[count]->Dormitory_name);
-    printf("몇인실을 신청하실 건가요? (창조관은 1인실, 갈대상자관은 1인실/2인실, 나머지 호관은 4인실/2인실이 신청 가능합니다.)");
-    scanf("%d", &students[count]->total_num_room);
+    printf("이름을 입력하시오. ");
+    scanf("%s", students[k]->name);
+    printf("학번을 입력하시오. ");
+    scanf("%s", students[k]->s_ID);
+    printf("성별을 입력하시오. ");
+    scanf("%s", students[k]->f_m);
+    printf("건물 이름을 입력하시오. (건물의 풀 네임으로 입력해주세요. ex) 로뎀관, 은혜관.) ");
+    scanf("%s", students[k]->Dormitory_name);
+    printf("몇인실을 신청하실 건가요? (창조관은 1인실, 갈대상자관은 1인실/2인실, 나머지 호관은 4인실/2인실이 신청 가능합니다.) ");
+    scanf("%d", &students[k]->total_num_room);
   }
   printf("수정 성공!");
 }
@@ -133,7 +133,7 @@ void delete_domitory() {
   char name[20]; // 직접 입력하게 될 Name
   int num = 0;
   int k = 0; // 학생이 몇번인지 확인하기 위한 변수
-  printf("학번을 입력하시오. (처음 입력했던대로 입력하시오)"); //학번 입력
+  printf("학번을 입력하시오. (처음 입력했던대로 입력하시오) "); //학번 입력
   scanf("%s", id);
 
   for (int i = 0; i < count; i++) {
@@ -144,7 +144,7 @@ void delete_domitory() {
     }
   }
 
-  printf("이름을 입력하시오. (처음 입력했던대로 입력하시오)"); // 이름을 입력받기
+  printf("이름을 입력하시오. (처음 입력했던대로 입력하시오) "); // 이름을 입력받기
   scanf("%s", name);
 
   if (strcmp(name, students[k]->name) == 0) {
@@ -157,17 +157,17 @@ void delete_domitory() {
       strcpy(students[k]->f_m, a);
       strcpy(students[k]->Dormitory_name, a);
       students[k]->total_num_room = 0;
-      printf("삭제 성공!");
+      printf("삭제 성공! ");
     }
   }
 }
 
 void apply_overnight(){
-  printf("외박을 신청하실 날짜를 입력하시오");
+  printf("외박을 신청하실 날짜를 입력하시오. ");
   getchar();
   fgets(overnight-> overnight_date,10,stdin);
 
-  printf("외박신청사유를 입력하시오");
+  printf("외박신청사유를 입력하시오. ");
   getchar();
   fgets(overnight->overnight_reason,50,stdin);
 
