@@ -9,9 +9,6 @@
 
 ## mini project 에 대한 소개
 #### 기숙사를 사용 하는 학생이 기숙사를 사용하고, 기숙사를 관리하는 관리자에게 기숙사를 관리할 수 있는 기능을 제공하는 서비스 입니다.
-
-<br/>
-[사진첨부]
 <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMTNfNDkg%2FMDAxNTEzMTQzNzkyMzgw.-s4Q_qV4Uy4yxzQLxvwxqa-YW1K3yJPeIwgTWT0iclsg.FJ8ywUvJA5naufkqJ1MjMTfUdFer7mZmNDO-e0hAEFIg.JPEG.hwasung_1958%2Ff18a6b2c94ead8d5ea74866f981365af.jpg&type=sc960_832">
 <br/>
 
