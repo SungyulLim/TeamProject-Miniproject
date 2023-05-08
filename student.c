@@ -14,7 +14,6 @@
 
 void student_main() {
   printf("학생용 서브메인 입니다\n");
-  students[count] = (student *)malloc(sizeof(student));
   
   while (1) {
     int menu = 0;
@@ -80,6 +79,7 @@ void checkMyInfo() {
 }
 
 void apply_domitory() {
+  students[count] = (student *)malloc(sizeof(student)); //======> main에서 여기 함수로 옮김.
   printf("이름을 입력하시오. ");
   scanf("%s", students[count]->name);
   printf("학번을 입력하시오. ");
@@ -90,6 +90,9 @@ void apply_domitory() {
   scanf("%s", students[count]->Dormitory_name);
   printf("몇인실을 신청하실 건가요? (창조관은 1인실, 갈대상자관은 1인실/2인실, 나머지 호관은 4인실/2인실이 신청 가능합니다.). ");
   scanf("%d", &students[count]->total_num_room);
+
+  students[count]->demerit = 0; //======> 이부분 추가
+  students[count]->Y_N = 'N'; //======> 이부분 추가
 
   printf("신청 성공!");
   count++;
