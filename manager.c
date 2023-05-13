@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 //관리자용 기능 여기서 만들기 + 서브매인도.
 // 헤더는 (void student_main())는 무조건 헤더파일에 선언해주어야 합니다.
@@ -145,5 +146,49 @@ void save_list(){
 
 //"5. 리스트 불러오기
 void recall_list(){
+
+    char filename[256] = "dormitory_List.txt";
+    if((access(filename, 0) != -1))  //파일 존재 여부 체크
+    { 
+        printf("=> 로딩 성공!\n");
+    }
+    else{
+        printf("=> 파일 없음\n");
+        return;
+    }
+
+    int n=0;
+	FILE *file;
+	file = fopen("dormitory_List.txt","r");
+
+
+	while(!feof(file)){
+        char a_name[20]; // 이름 : 이수민
+        char a_s_ID[10]; // gkrqjs : 22200533
+        char a_f_m[5];   // 성별(여/남)
+        char a_Dormitory_name[15]; // 건물이름(은혜관, 벧엘관, 비전관, 하용조관, 국제관, 로뎀관, 갈대상자
+        int a_room_num;       //방호실(204)
+        int a_total_num_room; // 인실(2/4/1)
+        int a_demerit;        //벌점 (0~10)
+        char a_Y_N;           //기숙사 배정 여부(Y/N) 
+
+		int ret = fscanf(file, "%s %s %s %s %d %d %d %c\n",a_name, a_s_ID, a_f_m, a_Dormitory_name, &a_room_num, &a_total_num_room, &a_demerit, &a_Y_N); 
+        
+		if(ret < 8) break;
+		students[count]=(student*)malloc(sizeof(student));
+		strcpy(students[n]->name, a_name);
+        strcpy(students[n]->s_ID, a_s_ID);
+        strcpy(students[n]->f_m, a_f_m);
+        strcpy(students[n]->Dormitory_name, a_Dormitory_name);
+		students[n]->room_num = a_room_num; 
+        students[n]->total_num_room = a_total_num_room;
+        students[n]->demerit = a_demerit;
+        students[n]->Y_N = a_Y_N;
+
+		count++;
+	}
+	fclose(file);
+
+	return;
 
 }
