@@ -64,6 +64,11 @@ void manager_main(){
 //1. 기숙사 신청자 방 배치
 void room_numbering(){
     int num;
+
+    if(count==0){
+        printf("\n기숙사 신청자가 없습니다!\n");
+        return; 
+    }
     printf("\n----------------------기숙사 신청자 리스트------------------\n");
     printf("번호 이름    학번   성별 생활관  호실 인실  벌점 방배정여부\n");
     for(int i=0; i<count; i++){
@@ -72,9 +77,27 @@ void room_numbering(){
         }
     }
     printf("-----------------------------------------------------------\n\n");
-    printf("방 배정 할 학생의 번호를 입력하세요 > ");
+    printf("방 배정 할 학생의 번호를 입력하세요( 돌아가려면 0을 입력하세요) > ");
     scanf("%d", &num);
+
+    if(num == 0){
+        printf("\n메인으로 돌아갑니다!\n");
+        return;
+    }
+
     num--; //배열이라 -1 해줘여함.
+    int chek = 0;
+    for(int i=0; i<count; i++){
+        if(i == num){
+            chek = 1;
+        }
+    }
+
+    if(chek == 0){
+        printf("\n잘못된 번호를 입력 하셨습니다\n메인으로 돌아갑니다!\n");
+        return;
+    }
+    
 
     printf("%s(%s)학우님을 배정학 방 호수를 입력하세요 > ", students[num]->name, students[num]->s_ID);
     scanf("%d", &students[num] ->room_num);
