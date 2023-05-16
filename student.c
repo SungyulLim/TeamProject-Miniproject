@@ -159,7 +159,7 @@ void delete_domitory() {
       strcpy(students[k]->s_ID, a);
       strcpy(students[k]->f_m, a);
       strcpy(students[k]->Dormitory_name, a);
-      students[k]->total_num_room = 0;
+      students[k]->total_num_room = -1;
       printf("삭제 성공! ");
     }
   }
