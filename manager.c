@@ -64,19 +64,27 @@ void manager_main(){
 //1. 기숙사 신청자 방 배치
 void room_numbering(){
     int num;
+    int chek_num = 0;
 
-    if(count==0){
-        printf("\n기숙사 신청자가 없습니다!\n");
-        return; 
-    }
     printf("\n----------------------기숙사 신청자 리스트------------------\n");
     printf("번호 이름    학번   성별 생활관  호실 인실  벌점 방배정여부\n");
     for(int i=0; i<count; i++){
         if(students[i] ->Y_N == 'N'){
+            if(students[i]->total_num_room == -1) {
+                continue;
+            }
+            chek_num ++ ;
             printf("%2d. %-4s %s  %s  %-4s %3d호 %d인실 %2d점  %3c\n",i+1 , students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
         }
     }
-    printf("-----------------------------------------------------------\n\n");
+    if(chek_num == 0 || count==0){
+        printf("\n기숙사 신청자가 없습니다!\n");
+        
+    }
+    printf("------------------------------------------------------------\n\n");
+    if(chek_num == 0 || count==0){
+        return;
+    }
     printf("방 배정 할 학생의 번호를 입력하세요( 돌아가려면 0을 입력하세요) > ");
     scanf("%d", &num);
 
