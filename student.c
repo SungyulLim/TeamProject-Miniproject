@@ -72,9 +72,22 @@ void checkMyInfo() {
   scanf("%s", name);
 
   if (strcmp(name, students[k]->name) == 0) { //입력받은 이름과 학번이 일치하면 본인의 개인정보 공개
-    printf("%-4s %s  %s  %-4s %3d호 %d인실 %2d점  %3c\n", students[k]->name, students[k]->s_ID, students[k]->f_m, students[k]->Dormitory_name,students[k]->room_num, students[k]->total_num_room, students[k]->demerit, students[k]->Y_N);
+    printf("********************\n");
+    printf("이름 : %s\n", students[k]->name);
+    printf("학번 : %s\n", students[k]->s_ID);
+    printf("성별 : %s\n", students[k]->f_m);
+    printf("기숙사 : %s\n", students[k]->Dormitory_name);
+    printf("인실 : %d\n", students[k]->total_num_room);
+    if(students[k]->Y_N == 'N'){
+      printf("호실 : 아직 방 배정이 되지 않았습니다.\n");
+    }
+    else{
+      printf("호실 : %d\n", students[k]->room_num);
+    }
+    printf("벌점 : %d\n", students[k]->demerit);
+    printf("********************\n");
   } else { //이름과 학번이 일치하지 않는 경우
-    printf("이름이 존재하지 않습니다. 다시 입력해주세요.\n");
+    printf("정보가 존재하지 않습니다. 다시 입력해주세요.\n");
   }
 }
 
