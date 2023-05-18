@@ -119,11 +119,15 @@ void dormitory_list(){
     printf("\n-----------------전체 리스트(사용자, 신청자)-----------------\n");
     printf("번호 이름    학번   성별 생활관  호실 인실  벌점 방배정여부\n");
     for(int i=0; i<count; i++){
+
+        if(students[i]->total_num_room == -1) {
+                continue;
+            }
         
         printf("%2d. %-4s %s  %s  %-4s %3d호 %d인실 %2d점  %3c\n",i+1 , students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
         
     }
-    printf("-------------------------------------------------------------\n\n");
+    printf("-----------------------------------------------------s--------\n\n");
 }
 
 
@@ -165,7 +169,9 @@ void save_list(){
         
 
     for(int i=0; i<count; i++){
-        if(students[i]->room_num == -1) continue;
+        if(students[i]->total_num_room == -1) {
+                continue;
+            }
         else{
             fprintf(fp, "%s %s %s %s %d %d %d %c\n",students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
         }
@@ -188,7 +194,6 @@ void recall_list(){
         return;
     }
 
-    int n=0;
 	FILE *file;
 	file = fopen("dormitory_List.txt","r");
 
@@ -207,14 +212,14 @@ void recall_list(){
         
 		if(ret < 8) break;
 		students[count]=(student*)malloc(sizeof(student));
-		strcpy(students[n]->name, a_name);
-        strcpy(students[n]->s_ID, a_s_ID);
-        strcpy(students[n]->f_m, a_f_m);
-        strcpy(students[n]->Dormitory_name, a_Dormitory_name);
-		students[n]->room_num = a_room_num; 
-        students[n]->total_num_room = a_total_num_room;
-        students[n]->demerit = a_demerit;
-        students[n]->Y_N = a_Y_N;
+		strcpy(students[count]->name, a_name);
+        strcpy(students[count]->s_ID, a_s_ID);
+        strcpy(students[count]->f_m, a_f_m);
+        strcpy(students[count]->Dormitory_name, a_Dormitory_name);
+		students[count]->room_num = a_room_num; 
+        students[count]->total_num_room = a_total_num_room;
+        students[count]->demerit = a_demerit;
+        students[count]->Y_N = a_Y_N;
 
 		count++;
 	}
