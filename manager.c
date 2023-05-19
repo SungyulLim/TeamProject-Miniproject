@@ -121,13 +121,12 @@ void dormitory_list(){
     for(int i=0; i<count; i++){
 
         if(students[i]->total_num_room == -1) {
-                continue;
-            }
-        
+            continue;
+        }
         printf("%2d. %-4s %s  %s  %-4s %3d호 %d인실 %2d점  %3c\n",i+1 , students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
         
     }
-    printf("-----------------------------------------------------s--------\n\n");
+    printf("--------------------------------------------------------------\n\n");
 }
 
 
@@ -136,17 +135,49 @@ void penalty_points(){
     int points[4] = {2, 1, 1, 5};
     int choose_points;
     int num;
+    int chek_num = 0;
     printf("\n---------------------기숙사 사용자 리스트------------------\n");
     printf("번호 이름    학번   성별 생활관  호실 인실  벌점 방배정여부\n");
     for(int i=0; i<count; i++){
         if(students[i] ->Y_N == 'Y'){
+            if(students[i]->total_num_room == -1) {
+                continue;
+            }
+            chek_num++;
             printf("%2d. %-4s %s  %s  %-4s %3d호 %d인실 %2d점  %3c\n",i+1 , students[i]->name, students[i]->s_ID, students[i]->f_m, students[i]->Dormitory_name, students[i]->room_num, students[i]->total_num_room, students[i]->demerit, students[i]->Y_N); 
         }
     }
-    printf("-----------------------------------------------------------\n\n");
-    printf("벌점을 부여 할 학생의 번호를 입력하세요 > ");
+    if(chek_num == 0 || count==0){
+        printf("\n기숙사 사용자가 없습니다!\n");
+        
+    }
+    printf("------------------------------------------------------------\n\n");
+    if(chek_num == 0 || count==0){
+        return;
+    }
+
+
+    printf("벌점을 부여 할 학생의 번호를 입력하세요 (돌아가려면 0을 입력하세요) > ");
     scanf("%d", &num);
+
+    if(num == 0){
+        printf("\n메인으로 돌아갑니다!\n");
+        return;
+    }
+
     num--; //배열이라 -1 해줘여함.
+
+    int chek = 0;
+    for(int i=0; i<count; i++){
+        if(i == num){
+            chek = 1;
+        }
+    }
+
+    if(chek == 0){
+        printf("\n잘못된 번호를 입력 하셨습니다\n메인으로 돌아갑니다!\n");
+        return;
+    }
 
     printf("* 벌점 리스트 *\n");
     printf("1. 무단외박 (2점)\n");
