@@ -15,13 +15,14 @@ typedef struct {
   int total_num_room; // 인실(2/4/1)
   int demerit;        //벌점 (0~10)
   char Y_N;           //기숙사 배정 여부(Y/N) 
-  char overnight_staystudent_overnight_list[50]; //하나의 학생의 외박 신청서 50번 가능.
+  overnight_stay overnight_staystudent_overnight_list[50]; //하나의 학생의 외박 신청서 50번 가능.
+  int num;
 } student;
 
 //전역 변수 어느곳에서도 선언 가능.
 student *students[50]; //전역 변수 선언. OSS실습 menu4 참고해주세요. 50명 까지
                        //수용 가능.
-overnight_stay *overnight;
+overnight_stay overnight;
 int count; // 전역 변수 선언. 메이네서 count=0 으로 초기화 했습니다!
 
 //여기 밑에 student.c 에 있는 함수 헤더 선언

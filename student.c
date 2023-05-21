@@ -110,6 +110,7 @@ void apply_domitory() {
 
   students[count]->demerit = 0; //======> 이부분 추가
   students[count]->Y_N = 'N'; //======> 이부분 추가
+  students[count]->num = 0;
 
   printf("\n신청 성공!\n");
   count++;
@@ -224,10 +225,13 @@ void apply_overnight(){
     
     if(strcmp(name, students[k]->name) == 0){
       printf("외박을 신청하실 날짜를 입력하시오. ( 예시: 5.18 ) ");
-      scanf("%s", overnight[k]-> overnight_date);
+      scanf("%s", overnight.overnight_date);
 
       printf("외박신청사유를 입력하시오. ");
-      scanf("%s", overnight[k]-> overnight_reason);
+      scanf("%s", overnight.overnight_reason);
+
+      students[k]->overnight_staystudent_overnight_list[students[k]->num] = overnight;
+      students[k]->num++;
 
       printf("외박 신청이 완료되었습니다! \n");
     }
